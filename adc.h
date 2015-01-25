@@ -11,7 +11,9 @@
 
 #define ADC_PIN_NO 5
 
-#include "dio.h"
+#include "std_type.h"
+#include "common_macro.h"
+#include "micro_config.h"
 
 void ADC_init(void);
 

@@ -6,26 +6,25 @@
  */ 
 
 #include "lcd.h"
-#include "adc.h"
+#include "lm35.h"
  
 
 int main(void)
 {
 	
 	LCD_init(); /* initialize LCD */
-	ADC_init();
+	LM35_init();
 	
 	LCD_displayStringRowColumn(0,0,"TEMPRUTURE");
 	LCD_displayStringRowColumn(1,8,"C");
 	
-	uint32 temp , recevedVolt ;
-	
+	uint8 temp ;
 	//LCD_intgerToString(10);
 	
     while(1)
     {
-		recevedVolt=ADC_read(ADC_PIN_NO);
-		temp=(100*5*recevedVolt)/1023 ;
+		temp=LM35_read();
+		
 		
 	if (temp<100)
 	{
